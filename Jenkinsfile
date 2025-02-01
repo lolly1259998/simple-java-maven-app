@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        node {
-            label 'build'
-        }
-    }
+    agent any  // Run on any available node
     tools {
-        maven 'M2_HOME'  // Replace 'M3' with the name of your Maven tool configured in Jenkins
+        maven 'M2_HOME'  // Ensure this matches your Maven tool configuration in Jenkins
     }
     options {
-        timeout(time: 1, unit: 'SECONDS')
+        timeout(time: 30, unit: 'MINUTES')  // Increased timeout
     }
     environment {
         APP_ENV = "DEV"
