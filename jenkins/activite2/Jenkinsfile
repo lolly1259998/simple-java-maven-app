@@ -1,17 +1,20 @@
 pipeline {
- agent any
- tools {jdk 'JAVA_HOME’, maven 'M2_HOME'}
- stages {
- stage('GIT') {
-           steps {
-               git branch: 'master',
-               url: ' https://github.com/hwafa/timesheetproject.git'
-          }
-     }
- stage ('Compile Stage') {
- steps {
- sh 'mvn clean compile'
- }
- }
- }
+    agent any
+    tools {
+        jdk 'JAVA_HOME'  // Ensure this matches the JDK tool name configured in Jenkins
+        maven 'M2_HOME'  // Ensure this matches the Maven tool name configured in Jenkins
+    }
+    stages {
+        stage('GIT') {
+            steps {
+                git branch: 'master',
+                       url: 'https://github.com/hwafa/timesheetproject.git'
+            }
+        }
+        stage('Compile Stage') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+    }
 }
