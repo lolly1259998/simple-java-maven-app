@@ -15,9 +15,9 @@ pipeline {
                 sh 'mvn install -Dmaven.test.skip=true'
             }
         }
-        stage('SonarQube Analysis') {
+        stage('SonarQube') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.token=squ_253bae0cf1fa30bda779ee52fa40ac06b4ebc0ae -Dmaven.test.skip=true';
+                sh 'mvn sonar:sonar -Dsonar.token=squ_75ec5f123179a9c2f52a8d9c5ae0095c0fc883a6 -Dmaven.test.skip=true';
             }
         }
     }
