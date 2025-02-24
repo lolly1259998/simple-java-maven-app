@@ -15,6 +15,11 @@ pipeline {
                 sh 'mvn install -Dmaven.test.skip=true'
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dmaven.test.skip=true';
+            }
+        }
     }
     post {
         always {
