@@ -17,7 +17,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.token=squ_253bae0cf1fa30bda779ee52fa40ac06b4ebc0ae -Dmaven.test.skip=true';
+                sh 'mvn sonar:sonar -Dsonar.token=squ_253bae0cf1fa30bda779ee52fa40ac06b4ebc0ae -Dmaven.test.skip=true';
             }
         }
     }
